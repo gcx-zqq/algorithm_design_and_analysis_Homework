@@ -69,48 +69,25 @@ SuanFaSheJiYuFenXi_Homework/
 
 ---
 
-## 上传GitHub步骤
+## 克隆到本地使用
 
-### 1. 初始化Git仓库
-在项目目录下打开终端，执行：
+### 方法一：使用Git命令克隆
+在终端中执行：
 ```bash
-git init
+git clone https://github.com/gcx-zqq/algorithm_design_and_analysis_Homework.git
 ```
 
-### 2. 配置用户信息（首次使用Git需要）
+### 方法二：使用智能体克隆
+如果你在Trae IDE或类似的智能体环境中，可以直接告诉智能体：
+"请帮我克隆仓库 https://github.com/gcx-zqq/algorithm_design_and_analysis_Homework.git"
+
+智能体会自动帮你完成克隆操作。
+
+### 进入项目目录
+克隆完成后，进入项目目录：
 ```bash
-git config user.name "你的用户名"
-git config user.email "你的邮箱"
+cd algorithm_design_and_analysis_Homework
 ```
 
-### 3. 添加文件到暂存区
-```bash
-git add .
-```
-
-### 4. 提交文件
-```bash
-git commit -m "Initial commit: 排序算法和0-1背包问题实验"
-```
-
-### 5. 在GitHub上创建新仓库
-1. 访问 https://github.com 并登录
-2. 点击右上角的 "+" → "New repository"
-3. 填写仓库名称（例如：SuanFaSheJiYuFenXi_Homework）
-4. 选择 Public 或 Private
-5. **不要**勾选 "Initialize this repository with a README"
-6. 点击 "Create repository"
-
-### 6. 关联远程仓库并推送
-```bash
-git remote add origin https://github.com/你的用户名/仓库名.git
-git branch -M main
-git push -u origin main
-```
-
-### 7. 后续更新（如果有修改）
-```bash
-git add .
-git commit -m "更新说明"
-git push
-```
+### 查看项目内容
+现在你可以查看和使用项目中的所有代码了！
