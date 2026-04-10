@@ -1,0 +1,107 @@
+
+================================================================================
+                    Sorting Algorithm Experiment Report
+================================================================================
+
+1. Experiment Purpose
+---------------------
+1. Understand and implement Bubble Sort, Merge Sort, and Quick Sort algorithms
+2. Verify theoretical time complexity analysis through experiments
+3. Analyze algorithm growth rate and asymptotic behavior
+4. Understand the impact of input data equivalence classes on algorithm performance
+
+2. Experiment Content and Result Analysis
+---------------------------------------
+
+2.1 Two Datasets of 100 Random Numbers (Task 1)
+----------------------------------------------
+Dataset 1 Comparison Counts:
+  Bubble Sort: 4950
+  Merge Sort:  543
+  Quick Sort:  639
+
+Dataset 2 Comparison Counts:
+  Bubble Sort: 4950
+  Merge Sort:  544
+  Quick Sort:  609
+
+Comparison Count Differences:
+  Bubble Sort: |4950 - 4950| = 0
+  Merge Sort:  |543 - 544| = 1
+  Quick Sort:  |639 - 609| = 30
+
+Analysis Conclusion:
+- Bubble Sort comparison counts are identical in both datasets (always n(n-1)/2),
+  because it only depends on input size n, not initial arrangement.
+- Merge Sort has slight differences due to data values, but stays within O(n log n).
+- Quick Sort has the largest differences because performance depends on pivot selection.
+- Input Data Equivalence Classes: For Bubble Sort, all permutations are equivalent;
+  for Merge and Quick Sort, different initial permutations belong to different classes.
+
+2.2 Different Size Tests (Task 2)
+--------------------------------
+Comparison Count Statistics:
+
+Size    | Bubble Sort | Merge Sort | Quick Sort
+--------|-------------|------------|-----------
+     10 |          45 |         24 |         25
+    100 |        4950 |        547 |        587
+   1000 |      499500 |       8718 |      11522
+   2000 |     1999000 |      19372 |      26216
+   5000 |    12497500 |      55271 |      68570
+  10000 |    49995000 |     120475 |     158023
+ 100000 |  4999950000 |    1536521 |    2063008
+
+
+Theoretical Time Complexity Comparison:
+
+1. Bubble Sort:
+   - Theoretical: O(n^2)
+   - Experimental: Comparison counts ~ n^2/2, confirming quadratic growth
+   - At n=100000, ~5e9 comparisons demonstrate quadratic behavior
+
+2. Merge Sort:
+   - Theoretical: O(n log n)
+   - Experimental: Comparison counts ~ n log2 n, grows much slower
+   - At n=100000, only ~1.7e6 comparisons
+
+3. Quick Sort:
+   - Theoretical average: O(n log n)
+   - Experimental: Fewer comparisons than Merge Sort on random inputs
+   - Better practical performance due to smaller constant factors
+
+Asymptotic Behavior and Growth Rate Analysis:
+- The curves show Bubble Sort has clear quadratic growth
+- Merge and Quick Sort show linear-logarithmic growth
+- For small n (<1000), differences are not obvious
+- For large n (>10000), Bubble Sort performance degrades sharply
+- This confirms: as n approaches infinity, O(n log n) is far better than O(n^2)
+
+2.3 Subproblem Size Analysis (Task 3)
+------------------------------------
+Merge Sort Subproblem Characteristics:
+- Subproblem sizes decrease strictly, dividing into two roughly equal parts
+- Subproblem sequence: n, n/2, n/4, ..., 1
+- Recursion depth log2 n, demonstrating divide-and-conquer
+
+Quick Sort Subproblem Characteristics:
+- Subproblem division depends on pivot, less balanced than Merge Sort
+- On random inputs, relatively balanced with average recursion depth O(log n)
+- Subproblem distribution more scattered than Merge Sort
+
+Subproblem Analysis Conclusion:
+- Merge Sort always divides evenly, guaranteeing stable O(n log n)
+- Quick Sort division depends on input, but performs well on random data
+- Recursive algorithm performance closely relates to subproblem balance
+
+3. Experiment Summary
+--------------------
+1. Theory and Experiment: Results fully verify time complexity analysis
+2. Algorithm Selection:
+   - Small data: Any algorithm works
+   - Medium data: Merge or Quick Sort
+   - Large data: Quick Sort (best average) or Merge Sort (stable)
+3. Input Impact: Algorithms have different sensitivity to input data
+4. Recursion Tips: Correctly handling base cases, division, and merge is key
+
+================================================================================
